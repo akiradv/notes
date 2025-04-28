@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "EOgyAS4yK90=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\AkiraDev\\Desktop\\com.akiradev\\Projetos\\Notes\\Notes.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\AkiraDev\\.nuget\\packages\\microsoft.net.illink.tasks\\9.0.1\\microsoft.net.illink.tasks.9.0.1.nupkg.sha512"
+  ],
+  "logs": []
+}
