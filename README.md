@@ -1,8 +1,8 @@
-# 🎵 iPod Notes
+# 🎵 iNotes
 
 Um bloco de notas nostálgico inspirado no visual dos iPods de 2007!
 
-**iPod Notes** é um aplicativo minimalista para anotações rápidas, com uma interface retrô baseada no design clássico dos antigos iPods. Ideal para quem busca praticidade com um toque de nostalgia.
+**iNotes** é um aplicativo minimalista para anotações rápidas, com uma interface retrô baseada no design clássico dos antigos iPods. Ideal para quem busca praticidade com um toque de nostalgia.
 
 ---
 
