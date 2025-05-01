@@ -20,7 +20,7 @@ Versão 1 vs. Versão 2:
 
 <div align="center">
   <img src="https://github.com/akiradv/notes/blob/main/assets/v1.png" alt="Versão 1" width="300"/>
-  <img src="https://github.com/akiradv/notes/blob/main/assets/v2.png" alt="Versão 2" width="300"/>
+  <img src="https://github.com/akiradv/notes/blob/main/assets/v2.jpg" alt="Versão 2" width="300"/>
 </div>
 
 ---
