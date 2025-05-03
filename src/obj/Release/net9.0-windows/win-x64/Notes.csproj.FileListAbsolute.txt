@@ -17,3 +17,15 @@ C:\Users\AkiraDev\Desktop\com.akiradev\Projetos\Notes\obj\Release\net9.0-windows
 C:\Users\AkiraDev\Desktop\com.akiradev\Projetos\Notes\obj\Release\net9.0-windows\win-x64\refint\Notes.dll
 C:\Users\AkiraDev\Desktop\com.akiradev\Projetos\Notes\obj\Release\net9.0-windows\win-x64\Notes.genruntimeconfig.cache
 C:\Users\AkiraDev\Desktop\com.akiradev\Projetos\Notes\obj\Release\net9.0-windows\win-x64\ref\Notes.dll
+C:\Users\AkiraDev\Desktop\com.akiradev\Projetos\Notes\obj\Release\net9.0-windows\win-x64\MessageWindow.g.cs
+C:\Users\AkiraDev\Desktop\com.akiradev\Projetos\Notes\obj\Release\net9.0-windows\win-x64\SaveNoteWindow.g.cs
+C:\Users\AkiraDev\Desktop\com.akiradev\Projetos\Notes\obj\Release\net9.0-windows\win-x64\MessageWindow.baml
+C:\Users\AkiraDev\Desktop\com.akiradev\Projetos\Notes\obj\Release\net9.0-windows\win-x64\SaveNoteWindow.baml
+C:\Users\AkiraDev\Desktop\com.akiradev\Projetos\Notes\bin\Release\net9.0-windows\win-x64\PdfSharp-wpf.dll
+C:\Users\AkiraDev\Desktop\com.akiradev\Projetos\Notes\bin\Release\net9.0-windows\win-x64\PdfSharp.Charting-wpf.dll
+C:\Users\AkiraDev\Desktop\com.akiradev\Projetos\Notes\bin\Release\net9.0-windows\win-x64\de\PdfSharp-wpf.resources.dll
+C:\Users\AkiraDev\Desktop\com.akiradev\Projetos\Notes\bin\Release\net9.0-windows\win-x64\de\PdfSharp.Charting-wpf.resources.dll
+C:\Users\AkiraDev\Desktop\com.akiradev\Projetos\Notes\obj\Release\net9.0-windows\win-x64\Notes.csproj.AssemblyReference.cache
+C:\Users\AkiraDev\Desktop\com.akiradev\Projetos\Notes\obj\Release\net9.0-windows\win-x64\SettingsWindow.g.cs
+C:\Users\AkiraDev\Desktop\com.akiradev\Projetos\Notes\obj\Release\net9.0-windows\win-x64\SettingsWindow.baml
+C:\Users\AkiraDev\Desktop\com.akiradev\Projetos\Notes\obj\Release\net9.0-windows\win-x64\Notes.csproj.Up2Date

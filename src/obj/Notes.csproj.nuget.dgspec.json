@@ -49,6 +49,10 @@
               "target": "Package",
               "version": "[9.0.1, )",
               "autoReferenced": true
+            },
+            "PdfSharp-wpf": {
+              "target": "Package",
+              "version": "[1.50.5147, )"
             }
           },
           "imports": [

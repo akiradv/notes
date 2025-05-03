@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET9_0;NETCOREAPP
 C:\Users\AkiraDev\Desktop\com.akiradev\Projetos\Notes\App.xaml
-11407045341
+4-633191445
 
-4-621921544
-200161758370
-MainWindow.xaml;
+71988753060
+202432998985
+MainWindow.xaml;MessageWindow.xaml;SaveNoteWindow.xaml;SettingsWindow.xaml;
 
 False
 

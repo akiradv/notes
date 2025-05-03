@@ -5,10 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Notes"
         mc:Ignorable="d"
-        Title="iPod Notes" Height="360" Width="280" 
-        Background="{StaticResource iPodBackgroundBrush}" 
+        Title="iNotes" Height="360" Width="280" 
+        Background="Transparent" 
         WindowStartupLocation="CenterScreen"
-        ResizeMode="CanMinimize">
+        ResizeMode="CanResizeWithGrip"
+        WindowStyle="None"
+        AllowsTransparency="True"
+        MinWidth="260" MinHeight="320">
     <Window.Resources>
         <DropShadowEffect x:Key="SoftShadowEffect" BlurRadius="10" ShadowDepth="1" 
                           Opacity="0.2" Direction="315" Color="#000000"/>
@@ -42,6 +45,42 @@
                 </Trigger>
             </Style.Triggers>
         </Style>
+        
+        <Style x:Key="CloseButtonStyle" TargetType="Button">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Width="20" Height="10" Background="#007AFF" CornerRadius="1">
+                            <Border.Effect>
+                                <DropShadowEffect BlurRadius="1" ShadowDepth="0.5" 
+                                                Opacity="0.1" Direction="315" Color="#000000"/>
+                            </Border.Effect>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Opacity" Value="0.9"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="Opacity" Value="0.7"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <!-- Estilo personalizado para o CheckBox -->
+        <Style x:Key="iPodCheckBoxStyle" TargetType="CheckBox">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="CheckBox">
+                        <Border Width="14" Height="14" BorderThickness="1" 
+                                BorderBrush="#999999" CornerRadius="2" Background="White">
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
     </Window.Resources>
     
     <Window.Effect>
@@ -49,7 +88,8 @@
                           Opacity="0.2" Direction="315" Color="#000000"/>
     </Window.Effect>
     
-    <Border CornerRadius="12" BorderThickness="1" BorderBrush="#CCCCCC" Margin="5">
+    <Border CornerRadius="12" BorderThickness="1" BorderBrush="{StaticResource iPodBorderBrush}" Margin="5"
+            Background="{StaticResource iPodBackgroundBrush}">
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
@@ -59,7 +99,9 @@
             
             <!-- Cabeçalho -->
             <Border Background="{StaticResource iPodHeaderBrush}" Grid.Row="0" 
-                    Padding="12,10" CornerRadius="12,12,0,0">
+                    Padding="12,8,12,8" CornerRadius="12,12,0,0" 
+                    Effect="{StaticResource SoftShadowEffect}"
+                    MouseLeftButtonDown="Border_MouseLeftButtonDown">
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="Auto"/>
@@ -67,57 +109,85 @@
                         <ColumnDefinition Width="Auto"/>
                     </Grid.ColumnDefinitions>
                     
-                    <!-- Ícone de Notas -->
-                    <Viewbox Width="18" Height="18" Grid.Column="0" Margin="0,0,8,0">
-                        <Path Data="M3,1 L17,1 L17,19 L3,19 Z" 
-                              Fill="White" Stroke="{StaticResource iPodAccentBrush}" 
-                              StrokeThickness="1.5"/>
-                    </Viewbox>
+                    <!-- Botão de Configurações (à esquerda) -->
+                    <Button x:Name="SettingsButton" Grid.Column="0" Style="{StaticResource ThemeToggleButtonStyle}"
+                            Click="SettingsButton_Click" Margin="0,0,5,0" 
+                            ToolTip="Abrir configurações (tema e tamanho da fonte)"
+                            Cursor="Hand">
+                        <Grid>
+                            <Path Style="{StaticResource ThemeIconStyle}"
+                                  Fill="{StaticResource iPodAccentBrush}"
+                                  Data="M12,15.5A3.5,3.5 0 0,1 8.5,12A3.5,3.5 0 0,1 12,8.5A3.5,3.5 0 0,1 15.5,12A3.5,3.5 0 0,1 12,15.5M19.43,12.97C19.47,12.65 19.5,12.33 19.5,12C19.5,11.67 19.47,11.34 19.43,11L21.54,9.37C21.73,9.22 21.78,8.95 21.66,8.73L19.66,5.27C19.54,5.05 19.27,4.96 19.05,5.05L16.56,6.05C16.04,5.66 15.5,5.32 14.87,5.07L14.5,2.42C14.46,2.18 14.25,2 14,2H10C9.75,2 9.54,2.18 9.5,2.42L9.13,5.07C8.5,5.32 7.96,5.66 7.44,6.05L4.95,5.05C4.73,4.96 4.46,5.05 4.34,5.27L2.34,8.73C2.21,8.95 2.27,9.22 2.46,9.37L4.57,11C4.53,11.34 4.5,11.67 4.5,12C4.5,12.33 4.53,12.65 4.57,12.97L2.46,14.63C2.27,14.78 2.21,15.05 2.34,15.27L4.34,18.73C4.46,18.95 4.73,19.03 4.95,18.95L7.44,17.94C7.96,18.34 8.5,18.68 9.13,18.93L9.5,21.58C9.54,21.82 9.75,22 10,22H14C14.25,22 14.46,21.82 14.5,21.58L14.87,18.93C15.5,18.67 16.04,18.34 16.56,17.94L19.05,18.95C19.27,19.03 19.54,18.95 19.66,18.73L21.66,15.27C21.78,15.05 21.73,14.78 21.54,14.63L19.43,12.97Z"/>
+                            <Ellipse Width="22" Height="22" Stroke="{StaticResource iPodAccentBrush}" 
+                                    StrokeThickness="0.5" Fill="Transparent">
+                                <Ellipse.Effect>
+                                    <DropShadowEffect BlurRadius="5" ShadowDepth="0" 
+                                                    Opacity="0.2" Color="#007AFF"/>
+                                </Ellipse.Effect>
+                            </Ellipse>
+                        </Grid>
+                    </Button>
                     
                     <!-- Título -->
-                    <TextBlock Text="iPod Notes" FontSize="16" FontFamily="Segoe UI, Arial" 
-                             Foreground="{StaticResource iPodTextBrush}" 
+                    <TextBlock Text="iNotes" FontSize="16" FontFamily="Segoe UI, Arial" 
+                             Foreground="{StaticResource iPodTextBrush}" FontWeight="Medium"
                              Grid.Column="1" HorizontalAlignment="Center"
-                             VerticalAlignment="Center"/>
+                             VerticalAlignment="Center" TextAlignment="Center"/>
                     
-                    <!-- Indicador de Bateria -->
-                    <Viewbox Width="20" Height="10" Grid.Column="2">
-                        <Canvas Width="20" Height="10">
-                            <Rectangle Width="18" Height="10" Canvas.Left="0" Canvas.Top="0" 
-                                       Stroke="{StaticResource iPodTextBrush}" 
-                                       StrokeThickness="1" RadiusX="2" RadiusY="2" 
-                                       Fill="Transparent"/>
-                            <Rectangle Width="14" Height="6" Canvas.Left="2" Canvas.Top="2" 
-                                       Fill="#8CC84B"/>
-                            <Rectangle Width="2" Height="4" Canvas.Left="18" Canvas.Top="3" 
-                                       Fill="{StaticResource iPodTextBrush}"/>
-                        </Canvas>
-                    </Viewbox>
+                    <!-- Botão Fechar (estilo bateria) -->
+                    <Button Grid.Column="2" Style="{StaticResource CloseButtonStyle}"
+                            Click="CloseButton_Click" Margin="0,-1,0,0"
+                            Cursor="Hand"/>
                 </Grid>
             </Border>
             
             <!-- Área de texto -->
-            <Border Grid.Row="1" Margin="8" CornerRadius="8" 
-                    Background="White" BorderThickness="1" 
-                    BorderBrush="#E0E0E0">
+            <Border Grid.Row="1" Margin="10,6,10,6" CornerRadius="8" 
+                    Background="{StaticResource iPodBackgroundBrush}" BorderThickness="1.5" 
+                    BorderBrush="{StaticResource iPodLightGrayBrush}"
+                    Effect="{StaticResource SoftShadowEffect}">
                 <TextBox Style="{StaticResource iPodTextBoxStyle}"
-                        Name="NotesTextBox" Padding="8"
+                        Name="NotesTextBox" Padding="12"
                         Margin="1"/>
             </Border>
             
             <!-- Barra inferior de botões -->
             <Border Grid.Row="2" Background="{StaticResource iPodHeaderBrush}" 
                     CornerRadius="0,0,12,12">
-                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" 
-                            Margin="0,10,0,10">
-                    <Button Content="Novo" Style="{StaticResource iPodButtonStyle}" 
-                            Name="NewButton" Width="70" Margin="6"/>
-                    <Button Content="Salvar" Style="{StaticResource iPodButtonStyle}" 
-                            Name="SaveButton" Width="70" Margin="6"/>
-                    <Button Content="Lista" Style="{StaticResource iPodButtonStyle}" 
-                            Name="ListButton" Width="70" Margin="6"/>
-                </StackPanel>
+    <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    
+                    <!-- Botões principais -->
+                    <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Center" 
+                                Margin="0,8,0,2">
+                        <Button Content="Novo" Style="{StaticResource iPodButtonStyle}" 
+                                Name="NewButton" Width="70" Height="28" Margin="4,0"
+                                Foreground="{StaticResource iPodTextBrush}"/>
+                        <Button Content="Salvar" Style="{StaticResource iPodButtonStyle}" 
+                                Name="SaveButton" Width="70" Height="28" Margin="4,0"
+                                Foreground="{StaticResource iPodTextBrush}"/>
+                        <Button Content="Lista" Style="{StaticResource iPodButtonStyle}" 
+                                Name="ListButton" Width="70" Height="28" Margin="4,0"
+                                Foreground="{StaticResource iPodTextBrush}"/>
+                    </StackPanel>
+                    
+                    <!-- Botões de exportação/importação -->
+                    <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" 
+                                Margin="0,2,0,8">
+                        <Button Content="Exportar" Style="{StaticResource iPodButtonStyle}" 
+                                Name="ExportButton" Width="85" Height="28" Margin="4,0"
+                                Click="ExportButton_Click"
+                                Foreground="{StaticResource iPodTextBrush}"/>
+                        <Button Content="Importar" Style="{StaticResource iPodButtonStyle}" 
+                                Name="ImportButton" Width="85" Height="28" Margin="4,0"
+                                Click="ImportButton_Click"
+                                Foreground="{StaticResource iPodTextBrush}"/>
+                    </StackPanel>
+                </Grid>
             </Border>
-        </Grid>
+    </Grid>
     </Border>
 </Window>

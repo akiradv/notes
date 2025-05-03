@@ -8,4 +8,8 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="PdfSharp-wpf" Version="1.50.5147" />
+  </ItemGroup>
+
 </Project>

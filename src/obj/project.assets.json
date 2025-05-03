@@ -7,6 +7,33 @@
         "build": {
           "build/Microsoft.NET.ILLink.Tasks.props": {}
         }
+      },
+      "PDFsharp-wpf/1.50.5147": {
+        "type": "package",
+        "compile": {
+          "lib/net30/PdfSharp-wpf.dll": {
+            "related": ".xml"
+          },
+          "lib/net30/PdfSharp.Charting-wpf.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net30/PdfSharp-wpf.dll": {
+            "related": ".xml"
+          },
+          "lib/net30/PdfSharp.Charting-wpf.dll": {
+            "related": ".xml"
+          }
+        },
+        "resource": {
+          "lib/net30/de/PdfSharp-wpf.resources.dll": {
+            "locale": "de"
+          },
+          "lib/net30/de/PdfSharp.Charting-wpf.resources.dll": {
+            "locale": "de"
+          }
+        }
       }
     },
     "net9.0-windows7.0/win-x64": {
@@ -14,6 +41,33 @@
         "type": "package",
         "build": {
           "build/Microsoft.NET.ILLink.Tasks.props": {}
+        }
+      },
+      "PDFsharp-wpf/1.50.5147": {
+        "type": "package",
+        "compile": {
+          "lib/net30/PdfSharp-wpf.dll": {
+            "related": ".xml"
+          },
+          "lib/net30/PdfSharp.Charting-wpf.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net30/PdfSharp-wpf.dll": {
+            "related": ".xml"
+          },
+          "lib/net30/PdfSharp.Charting-wpf.dll": {
+            "related": ".xml"
+          }
+        },
+        "resource": {
+          "lib/net30/de/PdfSharp-wpf.resources.dll": {
+            "locale": "de"
+          },
+          "lib/net30/de/PdfSharp.Charting-wpf.resources.dll": {
+            "locale": "de"
+          }
         }
       }
     }
@@ -69,11 +123,29 @@
         "tools/net9.0/illink.runtimeconfig.json",
         "useSharedDesignerContext.txt"
       ]
+    },
+    "PDFsharp-wpf/1.50.5147": {
+      "sha512": "Dsxv4RpfRRN82inWpa2Q55xF7hORl7VX+vkEgzIlhrc1OpFJfsXRnEdISSCfE+to8grM5XSCEbM6zyioJX5Qhw==",
+      "type": "package",
+      "path": "pdfsharp-wpf/1.50.5147",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net30/PdfSharp-wpf.dll",
+        "lib/net30/PdfSharp-wpf.xml",
+        "lib/net30/PdfSharp.Charting-wpf.dll",
+        "lib/net30/PdfSharp.Charting-wpf.xml",
+        "lib/net30/de/PdfSharp-wpf.resources.dll",
+        "lib/net30/de/PdfSharp.Charting-wpf.resources.dll",
+        "pdfsharp-wpf.1.50.5147.nupkg.sha512",
+        "pdfsharp-wpf.nuspec"
+      ]
     }
   },
   "projectFileDependencyGroups": {
     "net9.0-windows7.0": [
-      "Microsoft.NET.ILLink.Tasks >= 9.0.1"
+      "Microsoft.NET.ILLink.Tasks >= 9.0.1",
+      "PdfSharp-wpf >= 1.50.5147"
     ]
   },
   "packageFolders": {
@@ -124,6 +196,10 @@
             "target": "Package",
             "version": "[9.0.1, )",
             "autoReferenced": true
+          },
+          "PdfSharp-wpf": {
+            "target": "Package",
+            "version": "[1.50.5147, )"
           }
         },
         "imports": [
@@ -153,5 +229,17 @@
         "#import": []
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "O pacote 'PDFsharp-wpf 1.50.5147' foi restaurado usando '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' em vez da estrutura de destino do projeto 'net9.0-windows7.0'. Esse pacote pode não ser totalmente compatível com o seu projeto.",
+      "libraryId": "PDFsharp-wpf",
+      "targetGraphs": [
+        "net9.0-windows7.0"
+      ]
+    }
+  ]
 }
