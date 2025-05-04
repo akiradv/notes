@@ -55,6 +55,7 @@ A versão mais completa até agora! Inclui:
 
 - **C#**  
 - **WPF (Windows Presentation Foundation)**  
+- **PdfSharp-wpf**  
 
 ---
 
